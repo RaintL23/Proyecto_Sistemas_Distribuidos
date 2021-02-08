@@ -10,14 +10,17 @@ import { ClientComponent } from './components/client/client.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { SellerComponent } from './components/seller/seller.component';
-import { BicycleComponent } from './components/bicycle/bicycle.component'
+import { BicycleComponent } from './components/bicycle/bicycle.component';
+import { TopbarComponent } from './others/topbar/topbar.component';
+import { AppRoutingModule } from './app-routing.module'
 
 @NgModule({
   declarations: [
     AppComponent,
     ClientComponent,
     SellerComponent,
-    BicycleComponent
+    BicycleComponent,
+    TopbarComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,8 @@ import { BicycleComponent } from './components/bicycle/bicycle.component'
     FlexLayoutModule,
     MaterialModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
