@@ -31,16 +31,4 @@ clientController.countClients = async (req, res) => {
     res.json({clientQuantity: clientsQuantity})
 }
 
-// clientController.pusherClients = async (req, res) => {
-//     const channel_name = req.body.channel_name;
-//     const event_name = req.body.event_name;
-//     const data = req.body.data;
- 
-//     pusher.trigger(channel_name, event_name, data);
-    
-//     res.status(200).send(data)
-// }
-
-
-
 module.exports = clientController
