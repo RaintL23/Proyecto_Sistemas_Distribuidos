@@ -39,5 +39,6 @@ app.post('/pusher/trigger', (req, res) => {
 
 app.use(require('./routes/clients.routes'));
 app.use(require('./routes/bicycle.routes'));
+app.use(require('./routes/sellers.routes'));
 
 module.exports = app;
