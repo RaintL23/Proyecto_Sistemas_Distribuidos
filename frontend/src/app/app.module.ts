@@ -12,7 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { SellerComponent } from './components/seller/seller.component';
 import { BicycleComponent } from './components/bicycle/bicycle.component';
 import { TopbarComponent } from './others/topbar/topbar.component';
-import { AppRoutingModule } from './app-routing.module'
+import { AppRoutingModule } from './app-routing.module';
+import { SidebarComponent } from './others/sidebar/sidebar.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AppRoutingModule } from './app-routing.module'
     ClientComponent,
     SellerComponent,
     BicycleComponent,
-    TopbarComponent
+    TopbarComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
