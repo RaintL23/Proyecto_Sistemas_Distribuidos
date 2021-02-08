@@ -1,0 +1,165 @@
+<div class="content">
+  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div fxFlex="27%">
+      <mat-card class="form_card">
+        <mat-card-header>
+          <mat-card-title>Clientes</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Clientes subscritos: {{clientsQuantity}}</p>
+          <button (click)="myFunction2()">Presiona</button>
+          <form #clientForm="ngForm" (ngSubmit)="addClient(clientForm)">
+
+            <input type="hidden" name="_id" [(ngModel)]="clientService.selectedClient._id">
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Name</mat-label>
+              <input
+                name="name"
+                matInput
+                placeholder="Enter your FullName"
+                type="text"
+                class="form-control"
+                [(ngModel)]="clientService.selectedClient.name">
+              <button mat-button matSuffix aria-label="Clear">
+                <input type="reset" value="X">
+              </button>
+            </mat-form-field>
+
+            <!-- <input
+              type="text"
+              class="form-control"
+              name="name"
+              placeholder="Enter your FullName"
+              [(ngModel)]="clientService.selectedClient.name"
+            /> -->
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Email</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                name="email"
+                placeholder="Enter your email"
+                [(ngModel)]="clientService.selectedClient.email">
+              <button mat-button matSuffix aria-label="Clear">
+                <input type="reset" value="X">
+              </button>
+            </mat-form-field>
+
+            <!-- <input
+              type="text"
+              class="form-control"
+              name="email"
+              placeholder="Enter your email"
+              [(ngModel)]="clientService.selectedClient.email"
+            /> -->
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Phone</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                name="phone"
+                placeholder="Enter your phone"
+                [(ngModel)]="clientService.selectedClient.phone">
+              <button mat-button matSuffix aria-label="Clear">
+                <input type="reset" value="X">
+              </button>
+            </mat-form-field>
+
+            <!-- <input
+              type="text"
+              class="form-control"
+              name="phone"
+              placeholder="Enter your phone"
+              [(ngModel)]="clientService.selectedClient.phone"
+            /> -->
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Age</mat-label>
+              <input
+                matInput
+                type="number"
+                class="form-control"
+                name="age"
+                placeholder="Enter your age"
+                [(ngModel)]="clientService.selectedClient.age">
+              <button mat-button matSuffix aria-label="Clear">
+                <input type="reset" value="X">
+              </button>
+            </mat-form-field>
+
+            <!-- <input
+              type="number"
+              class="form-control"
+              name="age"
+              placeholder="Enter your age"
+              [(ngModel)]="clientService.selectedClient.age"
+            /> -->
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Gener</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                name="sex"
+                placeholder="Enter your Gener"
+                [(ngModel)]="clientService.selectedClient.sex">
+              <button mat-button matSuffix aria-label="Clear">
+                <input type="reset" value="X">
+              </button>
+            </mat-form-field>
+
+            <!-- <input
+              type="text"
+              class="form-control"
+              name="sex"
+              placeholder="Enter your Gener"
+              [(ngModel)]="clientService.selectedClient.sex"
+            /> -->
+
+            <button mat-stroked-button>Save</button>
+
+          </form>
+          <!-- <button mat-stroked-button (click)="resetForm(clientForm)">Clean Forms</button> -->
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="73%">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Age</th>
+            <th>Gener</th>
+            <th>Operations</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let clientI of clientService.clients">
+            <td>{{clientI.name}}</td>
+            <td>{{clientI.email}}</td>
+            <td>{{clientI.phone}}</td>
+            <td>{{clientI.age}}</td>
+            <td>{{clientI.sex}}</td>
+            <td>
+              <button mat-stroked-button (click)="editClient(clientI)">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">create</mat-icon>
+              </button>
+              <button mat-stroked-button (click)="deleteClient(clientI._id!)">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>

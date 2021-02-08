@@ -1,0 +1,31 @@
+###
+GET http://localhost:4000/api/clients/
+
+####
+POST http://localhost:4000/api/clients
+Content-Type: application/json
+
+{
+    "name": "Miguel Zamora",
+    "email": "miguelzamora.23.97@gmail.com",
+    "phone": "1345334765432",
+    "age": 23,
+    "sex": "Male"
+}
+
+###
+GET http://localhost:4000/api/clients/601cdfdffb57762308c5664d
+
+###
+DELETE http://localhost:4000/api/clients/601bb724b969e32bd43e6746
+
+###
+PUT http://localhost:4000/api/clients/601cdfdffb57762308c5664d
+Content-Type: application/json
+
+{
+    "phone": "684769739583"
+}
+
+###
+GET http://localhost:4000/api/clientscount
