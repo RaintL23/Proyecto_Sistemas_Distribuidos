@@ -1,6 +1,9 @@
 ###
 GET http://localhost:4000/api/clients/
 
+###
+GET http://localhost:4000/api/bicycles/
+
 ####
 POST http://localhost:4000/api/clients
 Content-Type: application/json
@@ -11,6 +14,19 @@ Content-Type: application/json
     "phone": "1345334765432",
     "age": 23,
     "sex": "Male"
+}
+
+####
+POST http://localhost:4000/api/bicycles/
+Content-Type: application/json
+
+{
+    "price": 2000,
+    "model": "aquila",
+    "brand": "Optimus",
+    "type": "Montañera",
+    "size": "Rin 29",
+    "material": "Acero"
 }
 
 ###

@@ -12,7 +12,6 @@ import { PusherService } from '../../pusher/pusher.service';
 })
 export class ClientComponent implements OnInit {
 
-  client1: any;
   clientsQuantity!: number;
 
   constructor(public clientService: ClientService, private pusherService: PusherService) {

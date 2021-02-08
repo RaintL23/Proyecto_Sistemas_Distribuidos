@@ -11,5 +11,4 @@ router.delete('/api/clients/:id', clientsController.deleteClient)
 
 router.get('/api/clientscount', clientsController.countClients)
 
-
 module.exports = router

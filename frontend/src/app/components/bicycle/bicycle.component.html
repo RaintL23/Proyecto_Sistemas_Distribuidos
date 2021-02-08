@@ -1,1 +1,165 @@
-<p>bicycle works!</p>
+<div class="content">
+  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div fxFlex="27%">
+      <mat-card class="form_card">
+        <mat-card-header>
+          <mat-card-title>Bicicletas</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Bicicletas Registradas: {{bicyclesQuantity}}</p>
+          <button (click)="myFunction2()">Presiona</button>
+          <form #bicycleForm="ngForm" (ngSubmit)="addBicycle(bicycleForm)">
+
+            <input type="hidden" name="_id" [(ngModel)]="bicycleService.selectedBicycle._id">
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Model</mat-label>
+              <input
+                name="model"
+                matInput
+                placeholder="Enter your FullName"
+                type="text"
+                class="form-control"
+                [(ngModel)]="bicycleService.selectedBicycle.model">
+              <button mat-button matSuffix aria-label="Clear">
+                <input type="reset" value="X">
+              </button>
+            </mat-form-field>
+
+            <!-- <input
+              type="text"
+              class="form-control"
+              name="name"
+              placeholder="Enter your FullName"
+              [(ngModel)]="clientService.selectedClient.name"
+            /> -->
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Brand</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                name="brand"
+                placeholder="Enter your email"
+                [(ngModel)]="bicycleService.selectedBicycle.brand">
+              <button mat-button matSuffix aria-label="Clear">
+                <input type="reset" value="X">
+              </button>
+            </mat-form-field>
+
+            <!-- <input
+              type="text"
+              class="form-control"
+              name="email"
+              placeholder="Enter your email"
+              [(ngModel)]="clientService.selectedClient.email"
+            /> -->
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Price</mat-label>
+              <input
+                matInput
+                type="number"
+                class="form-control"
+                name="phone"
+                placeholder="Enter your phone"
+                [(ngModel)]="bicycleService.selectedBicycle.price">
+              <button mat-button matSuffix aria-label="Clear">
+                <input type="reset" value="X">
+              </button>
+            </mat-form-field>
+
+            <!-- <input
+              type="text"
+              class="form-control"
+              name="phone"
+              placeholder="Enter your phone"
+              [(ngModel)]="clientService.selectedClient.phone"
+            /> -->
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Type</mat-label>
+              <input
+                matInput
+                type="number"
+                class="form-control"
+                name="age"
+                placeholder="Enter your age"
+                [(ngModel)]="bicycleService.selectedBicycle.type">
+              <button mat-button matSuffix aria-label="Clear">
+                <input type="reset" value="X">
+              </button>
+            </mat-form-field>
+
+            <!-- <input
+              type="number"
+              class="form-control"
+              name="age"
+              placeholder="Enter your age"
+              [(ngModel)]="clientService.selectedClient.age"
+            /> -->
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Size</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                name="sex"
+                placeholder="Enter your Gener"
+                [(ngModel)]="bicycleService.selectedBicycle.size">
+              <button mat-button matSuffix aria-label="Clear">
+                <input type="reset" value="X">
+              </button>
+            </mat-form-field>
+
+            <!-- <input
+              type="text"
+              class="form-control"
+              name="sex"
+              placeholder="Enter your Gener"
+              [(ngModel)]="clientService.selectedClient.sex"
+            /> -->
+
+            <button mat-stroked-button>Save</button>
+
+          </form>
+          <!-- <button mat-stroked-button (click)="resetForm(clientForm)">Clean Forms</button> -->
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex="73%">
+      <table>
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Brand</th>
+            <th>Type</th>
+            <th>Size</th>
+            <th>Price</th>
+            <th>Operations</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bicycleI of bicycleService.bicycles">
+            <td>{{bicycleI.model}}</td>
+            <td>{{bicycleI.brand}}</td>
+            <td>{{bicycleI.type}}</td>
+            <td>{{bicycleI.size}}</td>
+            <td>{{bicycleI.price}}</td>
+            <td>
+              <button mat-stroked-button (click)="editBicycle(bicycleI)">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">create</mat-icon>
+              </button>
+              <button mat-stroked-button (click)="deleteBicycle(bicycleI._id!)">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">delete</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>

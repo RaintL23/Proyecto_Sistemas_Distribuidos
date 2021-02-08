@@ -15,14 +15,6 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// const pusher = new Pusher({
-//     appId: process.env.PUSHER_APP_ID,
-//     key: process.env.PUSHER_APP_KEY,
-//     secret: process.env.PUSHER_APP_SECRET,
-//     cluster: process.env.PUSHER_APP_CLUSTER,
-    
-// });
-
 const pusher = new Pusher({
     appId: "1149328",
     key: "065c603084ee91b0ad37",
@@ -45,14 +37,7 @@ app.post('/pusher/trigger', (req, res) => {
     res.status(200).send(data)
 })
 
-pusher.trigger('my-channel', 'myevent', {
-    "message": "hello world from server 1"
-});
-
-pusher.trigger('clients-channel', 'myevent', {
-    "message": "hello world from server 2"
-});
-
 app.use(require('./routes/clients.routes'));
+app.use(require('./routes/bicycle.routes'));
 
 module.exports = app;

@@ -4,10 +4,10 @@ const router = Router()
 const bicyclesController = require('../controllers/bicycle.controller')
 
 router.get('/api/bicycles', bicyclesController.getBicycles)
-router.post('/api/bicycles', bicyclesController.createBicycles)
-router.get('/api/bicycles/:id', bicyclesController.getBicycles)
-router.put('/api/bicycles/:id', bicyclesController.editBicycles)
-router.delete('/api/bicycles/:id', bicyclesController.deleteBicycles)
+router.post('/api/bicycles', bicyclesController.createBicycle)
+router.get('/api/bicycles/:id', bicyclesController.getBicycle)
+router.put('/api/bicycles/:id', bicyclesController.editBicycle)
+router.delete('/api/bicycles/:id', bicyclesController.deleteBicycle)
 
 router.get('/api/bicyclescount', bicyclesController.countBicycles)
 
