@@ -2,6 +2,13 @@
   flex: 1 1 auto;
 }
 
+.icon {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+
 .nav-button {
   margin-left: 10px;
 }

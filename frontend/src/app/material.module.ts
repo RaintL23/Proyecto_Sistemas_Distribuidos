@@ -9,6 +9,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
+import {MatListModule} from '@angular/material/list';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 @NgModule({
   imports: [
@@ -20,7 +22,9 @@ import {MatSelectModule} from '@angular/material/select';
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatListModule,
+    ScrollingModule,
   ],
   exports: [
     MatButtonModule,
@@ -31,7 +35,9 @@ import {MatSelectModule} from '@angular/material/select';
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatListModule,
+    ScrollingModule,
   ]
 })
 export class MaterialModule {}

@@ -1,0 +1,37 @@
+.container{
+  padding: 50px;
+}
+
+.card-list-item{
+  margin-top: 10%;
+}
+
+mat-card-content{
+  padding-left: 25px;
+}
+
+.priceMessage{
+  color: green;
+  font-weight: bold;
+}
+
+.materialMessage{
+  color: orange;
+  font-weight: bold;
+}
+
+.sizeMessage{
+  color: red;
+  font-weight: bold;
+}
+
+.sellerButton{
+  background-color: yellow;
+  color: black;
+}
+
+.buyButton{
+  margin-left: 20px;
+  background-color: green;
+  color: black;
+}

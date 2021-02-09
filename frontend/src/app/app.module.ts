@@ -13,7 +13,9 @@ import { SellerComponent } from './components/seller/seller.component';
 import { BicycleComponent } from './components/bicycle/bicycle.component';
 import { TopbarComponent } from './others/topbar/topbar.component';
 import { AppRoutingModule } from './app-routing.module';
-import { SidebarComponent } from './others/sidebar/sidebar.component'
+import { SidebarComponent } from './others/sidebar/sidebar.component';
+import { ClientDashboardComponent } from './components/client/client-dashboard/client-dashboard.component';
+import { SellerDashboardComponent } from './components/seller/seller-dashboard/seller-dashboard.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { SidebarComponent } from './others/sidebar/sidebar.component'
     SellerComponent,
     BicycleComponent,
     TopbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    ClientDashboardComponent,
+    SellerDashboardComponent
   ],
   imports: [
     BrowserModule,

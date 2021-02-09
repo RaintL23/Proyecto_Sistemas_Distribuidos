@@ -1,16 +1,14 @@
-<mat-toolbar>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>My App</span>
+<mat-toolbar color="primary">
+  <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">directions_bike</mat-icon>
+  <span>Bike Paradise</span>
   <span class="example-spacer"></span>
-  <nav>
+  <nav *ngIf="userType">
     <button mat-flat-button routerLink="/clients" class="nav-button">Clients</button>
   </nav>
-  <nav>
+  <nav *ngIf="userType">
     <button mat-flat-button routerLink="/sellers" class="nav-button">Sellers</button>
   </nav>
-  <nav>
+  <nav *ngIf="userType">
     <button mat-flat-button routerLink="/bicycles" class="nav-button">Bicycle</button>
   </nav>
 </mat-toolbar>
