@@ -20,27 +20,6 @@ export class PusherService {
     });
   }
 
-  myFunction(data: string): any {
-    console.log('boton presionado 2');
-
-    var channel2 = this.pusher.subscribe('my-channel');
-
-    // channel.bind('my-event', function(data:any) {
-
-    //   alert('Received my-event with message: ' + data.message);
-    //   let triggered = channel.trigger('client-my-event', data);
-    //   console.log(triggered)
-
-    // });
-    channel2.bind('pusher:subscription_succeeded', function() {
-      var triggered = channel2.trigger('client-myevent', data);
-      console.log(triggered.data)
-    });
-  }
-
-  triggerToServer():any{
-  }
-
   subScribeToChannel(channelName: String, events: String[], cb: Function) {
     this.channel = this.pusher.subscribe(channelName);
 

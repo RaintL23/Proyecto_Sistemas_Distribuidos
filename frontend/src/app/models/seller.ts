@@ -3,7 +3,7 @@ export interface Seller{
   email: string;
   phone: string;
   age: number;
-  sex: number;
+  sex: string;
   reputation: string;
   createdAt?: string;
   updateAt?: string;
