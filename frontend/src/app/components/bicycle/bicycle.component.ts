@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Bicycle } from 'src/app/models/bicycle';
+import { Seller } from 'src/app/models/seller';
 import { BicycleService } from 'src/app/services/bicycle.service';
+import { SellerService } from 'src/app/services/seller.service';
 
 import { PusherService } from '../../pusher/pusher.service';
 
@@ -13,13 +15,17 @@ import { PusherService } from '../../pusher/pusher.service';
 export class BicycleComponent implements OnInit {
 
   bicyclesQuantity!: number;
+  sellersAvailable: Seller[] = [];
+  sellerOwnerofBike!: Seller;
 
-  constructor( public bicycleService: BicycleService, private pusherService: PusherService) {
+  constructor( public bicycleService: BicycleService, public sellerService: SellerService, private pusherService: PusherService) {
     this.bicyclesQuantity = this.bicycleService.bicyclesQuantity || 0;
+    this.sellersAvailable = this.sellerService.sellers;
   }
 
   async ngOnInit() {
     this.getBicycles();
+    this.getSellers();
 
     this.pusherService.subScribeToChannel('bicycles-channel', ['newBike'], (data: any) => {
       console.log("Inside Pusher Create event");
@@ -40,12 +46,27 @@ export class BicycleComponent implements OnInit {
       // console.log("cantidad de clientes: " + this.clientsQuantity);
       // this.getClients();
     });
+    this.pusherService.subScribeToChannel('sellers-channel', ['newSub'], (data: any) => {
+      console.log("Inside Pusher Random event");
+      this.getSellers();
+      // console.log("cantidad de clientes: " + this.clientsQuantity);
+      // this.getClients();
+    });
   }
 
   myFunction2(): void{
     this.pusherService.triggerEvent('bicycles-channel', 'randomEvent', {message: 'Random'})
             .subscribe( data => {
             })
+  }
+
+  getSellers(): void{
+    this.sellerService.getSellers().subscribe(
+      res => {
+        this.sellersAvailable = res
+      },
+      err => console.log(err)
+    )
   }
 
   countBicycles(): void{

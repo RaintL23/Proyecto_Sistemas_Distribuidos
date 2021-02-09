@@ -136,6 +136,17 @@
               </button>
             </mat-form-field>
 
+            <mat-form-field appearance="outline">
+              <mat-label>Seller</mat-label>
+              <mat-select [(ngModel)]="sellerOwnerofBike" name="sellerId">
+                <mat-option *ngFor="let sellerI of sellersAvailable" [value]="sellerI._id">
+                  {{sellerI.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <br>
+
             <button mat-stroked-button>Save</button>
 
           </form>
@@ -154,6 +165,7 @@
             <th>Size</th>
             <th>Material</th>
             <th>Price</th>
+            <th>Seller</th>
             <th>Operations</th>
           </tr>
         </thead>
@@ -165,6 +177,7 @@
             <td>{{bicycleI.size}}</td>
             <td>{{bicycleI.material}}</td>
             <td>{{bicycleI.price}}</td>
+            <td>{{bicycleI.sellerId}}</td>
             <td>
               <button mat-stroked-button (click)="editBicycle(bicycleI)">
                 <mat-icon aria-hidden="false" aria-label="Example home icon">create</mat-icon>

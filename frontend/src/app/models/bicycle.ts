@@ -5,6 +5,7 @@ export interface Bicycle{
   type: string;
   size: string;
   material: string;
+  sellerId: string;
   createdAt?: string;
   updateAt?: string;
   _id?: string;

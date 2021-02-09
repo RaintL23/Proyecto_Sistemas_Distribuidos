@@ -7,6 +7,7 @@ const bicycleSchema = new Schema({
     type: {type: String, required: true},
     size: {type: String, required: true},
     material: {type: String, required: true},
+    sellerId: {type: String, required: true},
 }, {
     timestamps: true,
     versionKey: false

@@ -16,6 +16,7 @@ export class BicycleService {
     type: '',
     size: '',
     material: '',
+    sellerId: '',
   }
 
   bicycles: Bicycle[] = [];
