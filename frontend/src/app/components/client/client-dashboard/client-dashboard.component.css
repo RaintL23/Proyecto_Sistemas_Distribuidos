@@ -28,10 +28,39 @@ mat-card-content{
 .sellerButton{
   background-color: yellow;
   color: black;
+  font-size: 10px;
 }
 
 .buyButton{
-  margin-left: 20px;
+  margin-left: 10px;
   background-color: green;
   color: black;
+  font-size: 10px;
+}
+
+.sellerCard{
+  margin-top: 150px;
+  margin-right: 100px;
+  width: 85%;
+  height: 600px;
+}
+
+.reportButton{
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  margin-left: 100px;
+}
+
+.followButton{
+  background-color: rgb(1, 1, 155);
+  color: white;
+  font-weight: bold;
+  margin-left: 100px;
+}
+
+.myProfileCard{
+  margin-top: 30px;
+  margin-right: 100px;
+  width: 300px;
 }

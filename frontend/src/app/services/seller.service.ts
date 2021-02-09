@@ -28,6 +28,10 @@ export class SellerService {
     return this.http.get<Seller[]>(this.URL_API);
   }
 
+  getSeller(id: string){
+    return this.http.get<Seller>(`${this.URL_API}/${id}`);
+  }
+
   createSeller(seller: Seller){
     return this.http.post(this.URL_API, seller);
   }

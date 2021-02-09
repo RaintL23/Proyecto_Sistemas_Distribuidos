@@ -1,25 +1,100 @@
 <div class="content">
-  <div fxLayout="row wrap" fxLayoutGap="16px">
-    <div fxFlex="20%" *ngFor="let bicycleI of bicycleAvailable">
-      <mat-card class="mat-elevation-z4" class="card-list-item">
-        <mat-card-header>
-          <mat-card-title>{{bicycleI.brand}}, {{bicycleI.model}}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
+  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div fxFlex="75%">
+
+      <div fxLayout="row wrap" fxLayoutGap="16px">
+        <div fxFlex="20%" *ngFor="let bicycleI of bicycleAvailable">
+          <mat-card class="mat-elevation-z4" class="card-list-item">
+            <mat-card-header>
+              <mat-card-title>{{bicycleI.brand}}, {{bicycleI.model}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <br>
+              <p class="priceMessage">Precio: ${{bicycleI.price}}</p>
+              <br>
+              <p class="materialMessage">Fabricado en: {{bicycleI.material}}</p>
+              <br>
+              <p class="sizeMessage">Tamaño: {{bicycleI.size}}</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-flat-button class="sellerButton" (click)="searchSeller(bicycleI.sellerId)">VER VENDEDOR</button>
+              <button mat-flat-button class="buyButton" (click)="buyBicycle(bicycleI._id!)">COMPRAR</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+
+    </div>
+    <div fxFlex="25%">
+      <div *ngIf="showingSeller">
+        <mat-card class="mat-elevation-z4" class="sellerCard">
+          <button mat-icon-button (click)="cancelSellerInfo()">
+            <mat-icon>clear</mat-icon>
+          </button>
           <br>
-          <p class="priceMessage">Precio: ${{bicycleI.price}}</p>
-          <br>
-          <p class="materialMessage">Fabricado en: {{bicycleI.material}}</p>
-          <br>
-          <p class="sizeMessage">Tamaño: {{bicycleI.size}}</p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-flat-button class="sellerButton">VER VENDEDOR</button>
-          <button mat-flat-button class="buyButton">COMPRAR</button>
-        </mat-card-actions>
-      </mat-card>
+          <mat-card-header>
+            <mat-card-title>Nombre del Vendedor: {{selectedSeller.name}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <br>
+            <h3>Numero de Contacto: {{selectedSeller.sex}}</h3>
+            <br>
+            <h3>Correo Registrado: {{selectedSeller.email}}</h3>
+            <br>
+            <h3>Edad: {{selectedSeller.age}}</h3>
+            <br>
+            <h3>Sexo: {{selectedSeller.sex}}</h3>
+            <br>
+            <br>
+            <h1>Reputacion: {{selectedSeller.reputation}}</h1>
+            <br>
+            <br>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button class="reportButton" (click)="reportSeller()">REPORTAR</button>
+            <button mat-button class="followButton" (click)="followSeller()">SEGUIR</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+
+      <div *ngIf="!showingSeller">
+
+        <mat-card class="mat-elevation-z4" class="myProfileCard">
+          <mat-card-header>
+            <mat-card-title>Mi Nombre: {{myProfile.name}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>Email Afiliado: {{myProfile.email}}</p>
+            <br>
+            <p>Telefono Afiliado: {{myProfile.phone}}</p>
+            <br>
+            <p>Edad: {{myProfile.age}}</p>
+            <br>
+            <p>Genero: {{myProfile.sex}}</p>
+            <br>
+            <br>
+            <h2>Bicicletas Compradas:</h2>
+            <br>
+          </mat-card-content>
+          <mat-list>
+            <mat-list-item *ngFor="let bicycleI of myBicycles">
+              <mat-icon mat-list-icon>directions_bike</mat-icon>
+              <div mat-line>{{bicycleI.model}}</div>
+              <div mat-line> {{bicycleI.brand}} </div>
+              <button mat-flat-button (click)="refundBicycle(bicycleI._id!)">Reembolsar</button>
+              <mat-divider></mat-divider>
+            </mat-list-item>
+          </mat-list>
+        </mat-card>
+
+      </div>
+
     </div>
   </div>
+
+
+
+
   </div>
 
 <!-- *ngFor="let bicycleI of bicycleAvailable" -->

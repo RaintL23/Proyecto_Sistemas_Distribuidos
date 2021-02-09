@@ -28,6 +28,10 @@ export class BicycleService {
     return this.http.get<Bicycle[]>(this.URL_API);
   }
 
+  getBicycle(id: string){
+    return this.http.get<Bicycle>(`${this.URL_API}/${id}`);
+  }
+
   createBicycle(bicycle: Bicycle){
     console.log(bicycle)
     return this.http.post(this.URL_API, bicycle);
