@@ -12,7 +12,7 @@ import { PusherService } from '../../pusher/pusher.service';
 })
 export class BicycleComponent implements OnInit {
 
-  bicyclesQuantity!:number;
+  bicyclesQuantity!: number;
 
   constructor( public bicycleService: BicycleService, private pusherService: PusherService) {
     this.bicyclesQuantity = this.bicycleService.bicyclesQuantity || 0;
@@ -43,14 +43,14 @@ export class BicycleComponent implements OnInit {
   }
 
   myFunction2(): void{
-    this.pusherService.triggerEvent('clients-channel', 'randomEvent', {message: 'Random'})
+    this.pusherService.triggerEvent('bicycles-channel', 'randomEvent', {message: 'Random'})
             .subscribe( data => {
             })
   }
 
   countBicycles(): void{
     this.bicycleService.getBicyclesQuantity().subscribe((data:any) => {
-      this.bicycleService = data.bicycleQuantity;
+      this.bicyclesQuantity = data.bicycleQuantity;
     })
   }
 
@@ -65,12 +65,15 @@ export class BicycleComponent implements OnInit {
   }
 
   addBicycle(form: NgForm):void{
+    // console.log(form.value);
     if (form.value._id){
+      console.log('edita la bicicleta entrante')
       this.bicycleService.updateBicycle(form.value).subscribe(
         res => console.log(res),
         err => console.log(err)
       )
     }else{
+      console.log('se registra la bicicleta entrante')
       this.bicycleService.createBicycle(form.value).subscribe(
         data => {
           this.getBicycles()
@@ -101,7 +104,7 @@ export class BicycleComponent implements OnInit {
     }
     this.pusherService.triggerEvent('bicycles-channel', 'deleteBike', {message: 'bicycle deleted'})
             .subscribe( data => {
-              alert(data.toString());
+              alert( 'Se ha Eliminado una Bicicleta ' + data.valueOf);
             })
   }
 

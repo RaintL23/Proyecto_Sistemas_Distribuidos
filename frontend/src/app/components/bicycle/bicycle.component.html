@@ -17,7 +17,7 @@
               <input
                 name="model"
                 matInput
-                placeholder="Enter your FullName"
+                placeholder="Enter the bicycle's model"
                 type="text"
                 class="form-control"
                 [(ngModel)]="bicycleService.selectedBicycle.model">
@@ -41,7 +41,7 @@
                 type="text"
                 class="form-control"
                 name="brand"
-                placeholder="Enter your email"
+                placeholder="Enter the bicycle's brand"
                 [(ngModel)]="bicycleService.selectedBicycle.brand">
               <button mat-button matSuffix aria-label="Clear">
                 <input type="reset" value="X">
@@ -62,8 +62,8 @@
                 matInput
                 type="number"
                 class="form-control"
-                name="phone"
-                placeholder="Enter your phone"
+                name="price"
+                placeholder="Enter the bicycle's price"
                 [(ngModel)]="bicycleService.selectedBicycle.price">
               <button mat-button matSuffix aria-label="Clear">
                 <input type="reset" value="X">
@@ -82,10 +82,10 @@
               <mat-label>Type</mat-label>
               <input
                 matInput
-                type="number"
+                type="text"
                 class="form-control"
-                name="age"
-                placeholder="Enter your age"
+                name="type"
+                placeholder="Enter the bicycle's type"
                 [(ngModel)]="bicycleService.selectedBicycle.type">
               <button mat-button matSuffix aria-label="Clear">
                 <input type="reset" value="X">
@@ -106,8 +106,8 @@
                 matInput
                 type="text"
                 class="form-control"
-                name="sex"
-                placeholder="Enter your Gener"
+                name="size"
+                placeholder="Enter the bicycle's size"
                 [(ngModel)]="bicycleService.selectedBicycle.size">
               <button mat-button matSuffix aria-label="Clear">
                 <input type="reset" value="X">
@@ -121,6 +121,20 @@
               placeholder="Enter your Gener"
               [(ngModel)]="clientService.selectedClient.sex"
             /> -->
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Material</mat-label>
+              <input
+                matInput
+                type="text"
+                class="form-control"
+                name="material"
+                placeholder="Enter the bicycle's material"
+                [(ngModel)]="bicycleService.selectedBicycle.material">
+              <button mat-button matSuffix aria-label="Clear">
+                <input type="reset" value="X">
+              </button>
+            </mat-form-field>
 
             <button mat-stroked-button>Save</button>
 
@@ -138,6 +152,7 @@
             <th>Brand</th>
             <th>Type</th>
             <th>Size</th>
+            <th>Material</th>
             <th>Price</th>
             <th>Operations</th>
           </tr>
@@ -148,6 +163,7 @@
             <td>{{bicycleI.brand}}</td>
             <td>{{bicycleI.type}}</td>
             <td>{{bicycleI.size}}</td>
+            <td>{{bicycleI.material}}</td>
             <td>{{bicycleI.price}}</td>
             <td>
               <button mat-stroked-button (click)="editBicycle(bicycleI)">

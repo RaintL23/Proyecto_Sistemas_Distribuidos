@@ -27,12 +27,13 @@ export class BicycleService {
     return this.http.get<Bicycle[]>(this.URL_API);
   }
 
-  createBicycle(client: Bicycle){
-    return this.http.post(this.URL_API, client);
+  createBicycle(bicycle: Bicycle){
+    console.log(bicycle)
+    return this.http.post(this.URL_API, bicycle);
   }
 
-  updateBicycle(client: Bicycle){
-    return this.http.put(`${this.URL_API}/${client._id}`,client);
+  updateBicycle(bicycle: Bicycle){
+    return this.http.put(`${this.URL_API}/${bicycle._id}`,bicycle);
   }
 
   deleteBicycle(id: string){
