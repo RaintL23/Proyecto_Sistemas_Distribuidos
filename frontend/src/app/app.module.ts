@@ -15,7 +15,8 @@ import { TopbarComponent } from './others/topbar/topbar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SidebarComponent } from './others/sidebar/sidebar.component';
 import { ClientDashboardComponent } from './components/client/client-dashboard/client-dashboard.component';
-import { SellerDashboardComponent } from './components/seller/seller-dashboard/seller-dashboard.component'
+import { SellerDashboardComponent } from './components/seller/seller-dashboard/seller-dashboard.component';
+import { LoginComponent } from './components/login/login.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SellerDashboardComponent } from './components/seller/seller-dashboard/s
     TopbarComponent,
     SidebarComponent,
     ClientDashboardComponent,
-    SellerDashboardComponent
+    SellerDashboardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

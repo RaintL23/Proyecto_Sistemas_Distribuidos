@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from "@angular/common";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-topbar',
@@ -8,17 +10,19 @@ import { Component, OnInit } from '@angular/core';
 export class TopbarComponent implements OnInit {
 
   public userType: Boolean = true;
+  route!: string;
 
-  constructor() { }
+  constructor(location: Location, router: Router) {
+    router.events.subscribe(val => {
+      if (location.path() == "/clients" || location.path() == "/sellers" || location.path() == "/bicycles") {
+        this.userType = true
+      } else {
+        this.userType = false
+      }
+    });
+  }
 
   ngOnInit(): void {
-    console.log('Esta es la direccion actual ' + window.location.href)
-
-    if(window.location.href == 'http://localhost:4200/clients' || window.location.href == 'http://localhost:4200/sellers'  || window.location.href == 'http://localhost:4200/bicycles'){
-      this.userType = true
-    }else{
-      this.userType = false
-    }
   }
 
 }

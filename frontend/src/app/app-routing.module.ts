@@ -5,9 +5,10 @@ import { SellerComponent } from './components/seller/seller.component';
 import { BicycleComponent } from './components/bicycle/bicycle.component';
 import { ClientDashboardComponent } from './components/client/client-dashboard/client-dashboard.component';
 import { SellerDashboardComponent } from './components/seller/seller-dashboard/seller-dashboard.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
-  { path: '', component: ClientComponent },
+  { path: '', component: LoginComponent},
   { path: 'sellers', component: SellerComponent},
   { path: 'clients', component: ClientComponent},
   { path: 'bicycles', component: BicycleComponent},
